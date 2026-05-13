@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building AGI: The Engineering Path Beyond Transformers</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-marquee">
+      <span class="item">🔥 Quantum Computing Explained: What you need to know</span><span class="sep">|</span>
+      <span class="item">🚀 Free AI Roadmap PDF Available Now</span><span class="sep">|</span>
+      <span class="item">🤖 Top 10 ChatGPT Prompts for Developers</span><span class="sep">|</span>
+      <span class="item">🔥 Quantum Computing Explained: What you need to know</span><span class="sep">|</span>
+      <span class="item">🚀 Free AI Roadmap PDF Available Now</span><span class="sep">|</span>
+      <span class="item">🤖 Top 10 ChatGPT Prompts for Developers</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="nav-logo group">
+        <img src="images/logo.webp" alt="Trio RDS Tensor" class="nav-logo-img">
+        <span class="nav-logo-text">TRIO<span class="text-accent-primary"> RDS </span>TENSOR</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="blogpost.html" class="nav-link active">AI</a>
+        <a href="#" class="nav-link">Cyber</a>
+        <a href="#" class="nav-link">Programming</a>
+        <a href="#" class="nav-link">Roadmaps</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="nav-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+        </button>
+        <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Light/Dark Mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="reading-progress" id="reading-progress"></div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="blogpost.html" class="mobile-link active">AI</a>
+    <a href="#" class="mobile-link">Cyber</a>
+    <a href="#" class="mobile-link">Programming</a>
+    <a href="#" class="mobile-link">Roadmaps</a>
+  </div>
+
+  <main class="main-content blog-page">
+
+    <!-- Floating Sidebar (Desktop) -->
+    <aside class="blog-sidebar">
+      <nav class="toc">
+        <h4>Table of Contents</h4>
+        <a href="#introduction" class="toc-link">Introduction</a>
+        <a href="#the-architecture" class="toc-link">The Architecture of Intelligence</a>
+        <a href="#code-implementation" class="toc-link">Code Implementation</a>
+        <a href="#interactive-model" class="toc-link">Interactive Model</a>
+        <a href="#conclusion" class="toc-link">Conclusion</a>
+      </nav>
+
+      <div class="sidebar-actions">
+        <button class="action-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+          </svg></button>
+        <button class="action-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="18" cy="5" r="3" />
+            <circle cx="6" cy="12" r="3" />
+            <circle cx="18" cy="19" r="3" />
+            <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
+            <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
+          </svg></button>
+      </div>
+      <button class="focus-mode-btn" id="focus-mode-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+        Focus Mode
+      </button>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="blog-container">
+
+      <!-- Article Intro -->
+      <header class="article-header">
+        <div class="article-meta animate-on-scroll">
+          <span class="badge">Artificial Intelligence</span>
+          <span class="read-time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg> 8 min read</span>
+          <span class="date hidden-sm-down"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg> Oct 24, 2026</span>
+        </div>
+
+        <h1 class="article-title animate-on-scroll" style="transition-delay: 0.1s">
+          Building AGI: The Engineering Path Beyond Transformers
+        </h1>
+
+        <p class="article-subtitle animate-on-scroll" style="transition-delay: 0.2s">
+          Why scaling models isn't enough, and how novel geometric architectures are paving the way for next-generation
+          intelligence.
+        </p>
+
+        <div class="author-meta animate-on-scroll" style="transition-delay: 0.3s">
+          <div class="author-info">
+            <img src="https://ui-avatars.com/api/?name=Alex+Dev&background=00F5FF&color=fff" alt="Alex Dev"
+              class="author-img">
+            <div>
+              <h3>Alex Developer</h3>
+              <p>Lead AI Engineer</p>
+            </div>
+          </div>
+          <div class="author-socials">
+            <button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5 2.8 12 2.8 12s1.4.1 2.8-.3C2.1 10.3 2 6.7 2 6.7s1.5.8 2.8.8c-2-2-1.2-5.4-1.2-5.4 3.1 3.9 7.7 6.4 13.1 6.6-1.5-6.7 8.3-9.9 11.3-4.7 1.8-.4 3.3-1.4 3.3-1.4z" />
+              </svg></button>
+            <button><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg></button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Featured Image -->
+      <div class="featured-image animate-on-scroll" style="transition-delay: 0.4s">
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop"
+          alt="Abstract AI" loading="lazy">
+      </div>
+
+      <!-- Article Body -->
+      <article class="article-body">
+
+        <p id="introduction">
+          For the past decade, we've treated <span class="highlight-word">Transformers<span
+              class="underline"></span></span> as the holy grail of machine learning. The "Attention is All You Need"
+          paper revolutionized how we approach sequence modeling, leading to the LLM era. But as we push the boundaries
+          of reasoning, a harsh reality is setting in: attention scales quadratically, and throwing more compute at it
+          yields diminishing returns for complex logic.
+        </p>
+
+        <p>
+          It's time to talk about the post-LLM architectures. We're moving from statistical parrots to topological
+          reasoning engines. Let's break down how state space models (SSMs) and geometric deep learning are
+          fundamentally changing the blueprint of intelligence.
+        </p>
+
+        <h2 id="the-architecture">The Architecture of Intelligence</h2>
+
+        <p>
+          Current models operate in flat vector spaces. They understand relationships through dot products. But reality
+          isn't flat—it's highly structured, relational, and geometric. When we graph molecular structures or map social
+          networks, we aren't dealing with sequences; we're dealing with graphs.
+        </p>
+
+        <blockquote class="custom-quote">
+          <div class="quote-glow"></div>
+          "We are trying to build 3D intelligence using 1D tools. The next breakthrough won't be a larger model, it will
+          be a different geometry of processing."
+        </blockquote>
+
+        <h3 id="code-implementation">Implementing the Mamba Architecture</h3>
+
+        <p>
+          Let's look at how we can implement a basic structured state space block. Unlike self-attention, SSMs process
+          sequences linearly, meaning they can handle infinite context windows with constant memory.
+        </p>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="dots">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="lang">python</span>
+            </div>
+            <button class="copy-btn">Copy code</button>
+          </div>
+          <pre><code>import torch
+import torch.nn as nn
+
+class SSMBlock(nn.Module):
+    def __init__(self, d_model, d_state):
+        super().__init__()
+        self.d_model = d_model
+        
+        # State transitions
+        self.A = nn.Parameter(torch.randn(d_state, d_state))
+        self.B = nn.Parameter(torch.randn(d_state, 1))
+        self.C = nn.Parameter(torch.randn(1, d_state))
+        
+    def forward(self, x):
+        # Discretization and convolution logic here
+        # Linear time processing O(N)
+        return x_out</code></pre>
+        </div>
+
+        <div class="pro-tip">
+          <div class="tip-glow border"></div>
+          <div class="tip-content">
+            <div class="tip-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg></div>
+            <div>
+              <h4>Pro Insight</h4>
+              <p>Notice how the parameter size doesn't depend on the sequence length. This is what gives State Space
+                Models their incredible throughput during inference compared to standard autoregressive transformers.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mid-cta">
+          <div class="cta-glow"></div>
+          <h3>Want more deep-dives into AI Architecture?</h3>
+          <p>Get weekly advanced engineering breakdowns delivered straight to your inbox.</p>
+          <div class="cta-actions">
+            <button class="btn-primary">Subscribe Now</button>
+            <button class="btn-secondary">Read Next Article</button>
+          </div>
+        </div>
+
+
+
+        <h2 id="conclusion">Conclusion</h2>
+
+        <p>The hardware lottery favored dense matrix multiplications for the last decade. But as we reach the power
+          limits of data centers, architectural efficiency will win over sheer scale. Keep an eye on structured state
+          spaces and non-Euclidean architectures—they are the real bleeding edge of AI.</p>
+      </article>
+
+      <!-- Tags -->
+      <div class="article-tags animate-on-scroll">
+        <span class="tag">#Deep Learning</span>
+        <span class="tag">#Architecture</span>
+        <span class="tag">#Python</span>
+        <span class="tag">#Future Tech</span>
+      </div>
+
+      <!-- Author Card -->
+      <div class="author-card animate-on-scroll">
+        <div class="author-avatar-large">
+          <img src="https://ui-avatars.com/api/?name=Alex+Dev&background=00F5FF&color=fff&size=200" alt="Author">
+          <div class="avatar-glow"></div>
+        </div>
+        <div class="author-details">
+          <h3>Alex Developer</h3>
+          <p>Senior Machine Learning Engineer focusing on geometric architectures and systems optimization. I break down
+            complex AI papers into readable engineering code.</p>
+          <div class="author-actions">
+            <button class="btn-follow">Follow</button>
+            <div class="socials">
+              <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path
+                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5 2.8 12 2.8 12s1.4.1 2.8-.3C2.1 10.3 2 6.7 2 6.7s1.5.8 2.8.8c-2-2-1.2-5.4-1.2-5.4 3.1 3.9 7.7 6.4 13.1 6.6-1.5-6.7 8.3-9.9 11.3-4.7 1.8-.4 3.3-1.4 3.3-1.4z" />
+                </svg></a>
+              <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Posts -->
+      <div class="related-posts">
+        <h3 class="section-title animate-on-scroll">Related Articles</h3>
+        <div class="related-grid">
+          <a href="#" class="related-card animate-on-scroll">
+            <div class="related-image">
+              <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop"
+                alt="Thumbnail">
+              <span class="badge blue">Cybersecurity</span>
+            </div>
+            <div class="related-content">
+              <h4>Zero-Trust Networks in Web3</h4>
+              <div class="related-meta">
+                <span>Oct 18, 2026</span>
+                <span>5 min read</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="related-card animate-on-scroll" style="transition-delay: 0.1s">
+            <div class="related-image">
+              <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=600&auto=format&fit=crop"
+                alt="Thumbnail">
+              <span class="badge purple">Programming</span>
+            </div>
+            <div class="related-content">
+              <h4>Rust vs Go for Edge Computing</h4>
+              <div class="related-meta">
+                <span>Oct 12, 2026</span>
+                <span>12 min read</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Comments Section -->
+      <div class="comments-section animate-on-scroll">
+        <h3 class="section-title">Discussion</h3>
+
+        <div class="comment-box">
+          <textarea placeholder="Share your thoughts on this article..."></textarea>
+          <div class="comment-actions">
+            <span>Markdown supported</span>
+            <button class="btn-primary small">Post Comment</button>
+          </div>
+        </div>
+
+        <div class="comments-list">
+          <div class="comment-item">
+            <img src="https://ui-avatars.com/api/?name=Sam+X&background=111827&color=fff" alt="User">
+            <div class="comment-body">
+              <div class="comment-bubble">
+                <div class="comment-header">
+                  <strong>Sam_Hacker</strong>
+                  <span>2 hours ago</span>
+                </div>
+                <p>Great write-up. Have you looked into the new Mamba-2 paper? They've managed to integrate an
+                  attention-like mechanism back into the SSM block without losing the linear runtime complexity.</p>
+                <div class="comment-reactions">
+                  <button class="reaction-btn active">🔥 <span>12</span></button>
+                  <button class="reaction-btn">💡 <span>5</span></button>
+                  <button class="reaction-btn">🙌 <span>3</span></button>
+                </div>
+              </div>
+              <div class="comment-footer">
+                <button>Reply</button>
+              </div>
+
+              <!-- Threaded Reply -->
+              <div class="comment-reply">
+                <div class="comment-item">
+                  <img src="https://ui-avatars.com/api/?name=Alex+Dev&background=00F5FF&color=fff" alt="Author">
+                  <div class="comment-body">
+                    <div class="comment-bubble">
+                      <div class="comment-header">
+                        <strong>Alex Developer <span class="badge"
+                            style="font-size:0.5rem;padding:0.1rem 0.4rem;margin-left:0.25rem">Author</span></strong>
+                        <span>1 hour ago</span>
+                      </div>
+                      <p>Yes! Mamba-2 is incredible. I'm planning a deep-dive on it next week. The hybrid approach they
+                        use is really elegant.</p>
+                      <div class="comment-reactions">
+                        <button class="reaction-btn">❤️ <span>8</span></button>
+                        <button class="reaction-btn">🚀 <span>4</span></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comment-item">
+            <img src="https://ui-avatars.com/api/?name=Priya+K&background=8B5CF6&color=fff" alt="User">
+            <div class="comment-body">
+              <div class="comment-bubble">
+                <div class="comment-header">
+                  <strong>Priya_ML</strong>
+                  <span>45 min ago</span>
+                </div>
+                <p>The geometric deep learning angle is fascinating. I've been working with GNNs for molecular
+                  simulations and the topology-aware layers make a huge difference in accuracy.</p>
+                <div class="comment-reactions">
+                  <button class="reaction-btn">🔥 <span>7</span></button>
+                  <button class="reaction-btn">💡 <span>9</span></button>
+                </div>
+              </div>
+              <div class="comment-footer">
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Newsletter -->
+    <section class="newsletter bottom-newsletter">
+      <div class="newsletter-bg"></div>
+      <div class="newsletter-orb"></div>
+      <div class="newsletter-container">
+        <div class="newsletter-card animate-on-scroll">
+          <h2 class="newsletter-title">Join the <span class="text-gradient">future</span> of tech learning.</h2>
+          <p class="newsletter-desc">Over 50,000 developers read our weekly breakdowns. No spam, just deep engineering
+            insights.</p>
+          <form class="newsletter-form group">
+            <div class="form-glow"></div>
+            <div class="form-inner">
+              <input type="email" placeholder="Enter your email..." required>
+              <button type="submit">
+                <span>Subscribe</span>
+                <div class="btn-liquid"></div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Mobile Sticky Actions -->
+  <div class="mobile-sticky-actions hidden-lg-up">
+    <button><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path
+          d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
+      </svg> <span>2.4k</span></button>
+    <button><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </svg> <span>142</span></button>
+    <button><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+      </svg></button>
+    <button><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="18" cy="5" r="3" />
+        <circle cx="6" cy="12" r="3" />
+        <circle cx="18" cy="19" r="3" />
+        <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
+        <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
+      </svg></button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="footer-logo">
+            <img src="images/logo.webp" alt="Trio RDS Tensor" class="footer-logo-img">
+            <span class="logo-text">Trio<span class="text-text-secondary font-normal"> RDS Tensor</span></span>
+          </a>
+          <p class="footer-desc">Building the future, one line of code at a time.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Privacy</a>
+          <a href="#">Contact</a>
+          <a href="#">Sitemap</a>
+        </div>
+
+        <div class="footer-social">
+          <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4" />
+              <path d="M9 18c-4.5 1.5-5-2.5-7-3" />
+            </svg></a>
+          <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5 2.8 12 2.8 12s1.4.1 2.8-.3C2.1 10.3 2 6.7 2 6.7s1.5.8 2.8.8c-2-2-1.2-5.4-1.2-5.4 3.1 3.9 7.7 6.4 13.1 6.6-1.5-6.7 8.3-9.9 11.3-4.7 1.8-.4 3.3-1.4 3.3-1.4z" />
+            </svg></a>
+          <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect width="4" height="12" x="2" y="9" />
+              <circle cx="4" cy="4" r="2" />
+            </svg></a>
+          <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.9 5.7a1.94 1.94 0 0 1-2.2 0L2 7" />
+            </svg></a>
+        </div>
+      </div>
+      <div class="footer-copy">© 2026 Trio RDS Tensor. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="m18 15-6-6-6 6" />
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

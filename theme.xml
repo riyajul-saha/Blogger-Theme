@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.0.0'
+  expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'
+  xmlns='http://www.w3.org/1999/xhtml'
+  xmlns:b='http://www.google.com/2005/gml/b'
+  xmlns:data='http://www.google.com/2005/gml/data'
+  xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+  <b:include data='blog' name='all-head-content'/>
+  <title><data:blog.pageTitle/></title>
+
+  <!-- SEO Meta -->
+  <meta expr:content='data:blog.metaDescription' name='description'/>
+  <link expr:href='data:blog.canonicalUrl' rel='canonical'/>
+
+  <!-- Fonts -->
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;700;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap' rel='stylesheet'/>
+
+  <!-- Favicon -->
+  <link expr:href='data:blog.blogspotFaviconUrl' rel='icon' type='image/x-icon'/>
+
+  <!--
+    =====================================================================
+    IMPORTANT: Upload style.css to a CDN and replace the URL below.
+    Options: GitHub Pages, Google Drive direct link, or any static host.
+    =====================================================================
+  -->
+  <link href='YOUR_CDN_URL_HERE/style.css' rel='stylesheet'/>
+
+  <!-- Minimal required b:skin -->
+  <b:skin><![CDATA[
+    /* Blogger requires b:skin - main styles loaded externally */
+  ]]></b:skin>
+
+</head>
+<body>
+
+  <!-- ============ ANNOUNCEMENT BAR ============ -->
+  <div class='announcement-bar'>
+    <div class='announcement-marquee'>
+      <b:section id='announcement' showaddelement='yes'>
+        <b:widget id='HTML100' locked='false' title='Announcements' type='HTML' version='2'>
+          <b:includable id='main'>
+            <span class='item'>🔥 New posts every week — Stay updated!</span><span class='sep'>|</span>
+            <span class='item'>🚀 Follow us for the latest in tech</span><span class='sep'>|</span>
+            <span class='item'>🤖 AI, Cyber, Programming &amp; More</span><span class='sep'>|</span>
+            <span class='item'>🔥 New posts every week — Stay updated!</span><span class='sep'>|</span>
+            <span class='item'>🚀 Follow us for the latest in tech</span><span class='sep'>|</span>
+            <span class='item'>🤖 AI, Cyber, Programming &amp; More</span>
+          </b:includable>
+        </b:widget>
+      </b:section>
+    </div>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class='navbar' id='navbar'>
+    <div class='navbar-container'>
+      <a class='nav-logo' expr:href='data:blog.homepageUrl'>
+        <b:if cond='data:blog.blogspotFaviconUrl'>
+          <img alt='Logo' class='nav-logo-img' expr:src='data:blog.blogspotFaviconUrl'/>
+        </b:if>
+        <span class='nav-logo-text'><data:blog.title/></span>
+      </a>
+
+      <div class='nav-links'>
+        <a class='nav-link active' expr:href='data:blog.homepageUrl'>Home</a>
+        <a class='nav-link' href='/search/label/AI'>AI</a>
+        <a class='nav-link' href='/search/label/Cyber'>Cyber</a>
+        <a class='nav-link' href='/search/label/Programming'>Programming</a>
+        <a class='nav-link' href='/search/label/Roadmaps'>Roadmaps</a>
+      </div>
+
+      <div class='nav-actions'>
+        <a class='nav-btn' href='/search'><svg height='18' viewBox='0 0 24 24' width='18' fill='none' stroke='currentColor' stroke-width='2'><circle cx='11' cy='11' r='8'/><path d='m21 21-4.3-4.3'/></svg></a>
+        <button class='theme-toggle-btn' id='theme-toggle-btn' title='Toggle Theme'>
+          <svg class='icon-sun' height='18' viewBox='0 0 24 24' width='18' fill='none' stroke='currentColor' stroke-width='2'><circle cx='12' cy='12' r='5'/><line x1='12' x2='12' y1='1' y2='3'/><line x1='12' x2='12' y1='21' y2='23'/><line x1='4.22' x2='5.64' y1='4.22' y2='5.64'/><line x1='18.36' x2='19.78' y1='18.36' y2='19.78'/><line x1='1' x2='3' y1='12' y2='12'/><line x1='21' x2='23' y1='12' y2='12'/><line x1='4.22' x2='5.64' y1='19.78' y2='18.36'/><line x1='18.36' x2='19.78' y1='5.64' y2='4.22'/></svg>
+          <svg class='icon-moon' height='18' viewBox='0 0 24 24' width='18' fill='none' stroke='currentColor' stroke-width='2'><path d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'/></svg>
+        </button>
+        <button class='mobile-menu-btn' id='mobile-menu-btn'><svg height='18' viewBox='0 0 24 24' width='18' fill='none' stroke='currentColor' stroke-width='2'><line x1='4' x2='20' y1='12' y2='12'/><line x1='4' x2='20' y1='6' y2='6'/><line x1='4' x2='20' y1='18' y2='18'/></svg></button>
+      </div>
+    </div>
+    <div class='reading-progress' id='reading-progress'/>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class='mobile-menu-overlay' id='mobile-menu-overlay'>
+    <a class='mobile-link active' expr:href='data:blog.homepageUrl'>Home</a>
+    <a class='mobile-link' href='/search/label/AI'>AI</a>
+    <a class='mobile-link' href='/search/label/Cyber'>Cyber</a>
+    <a class='mobile-link' href='/search/label/Programming'>Programming</a>
+    <a class='mobile-link' href='/search/label/Roadmaps'>Roadmaps</a>
+  </div>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main class='main-content'>
+
+    <!-- HOMEPAGE: Hero + Posts -->
+    <b:if cond='data:blog.pageType == "index"'>
+
+      <!-- Hero Section -->
+      <section class='hero'>
+        <div class='hero-bg-orb orb-1'/>
+        <div class='hero-bg-orb orb-2'/>
+        <div class='hero-bg-grid'/>
+        <div class='hero-container'>
+          <div class='hero-content animate-on-scroll'>
+            <div class='hero-badge'>✨ Welcome to <data:blog.title/></div>
+            <h1 class='hero-title'>YOUR DAILY <br class='hidden-md'/><span class='text-gradient'>TECH DIGEST</span><br class='hidden-md'/> STARTS HERE.</h1>
+            <p class='hero-subtitle'><data:blog.metaDescription/></p>
+            <div class='hero-actions'>
+              <a class='btn-primary' expr:href='data:blog.homepageUrl'>Start Reading <svg height='20' viewBox='0 0 24 24' width='20' fill='none' stroke='currentColor' stroke-width='2.5'><path d='M5 12h14'/><path d='m12 5 7 7-7 7'/></svg></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trending Labels -->
+      <section class='trending'>
+        <div class='trending-container'>
+          <div class='trending-header'>
+            <div class='trending-badge'><span class='pulse-dot'/><span>Trending</span></div>
+            <div class='trending-line'/>
+          </div>
+          <b:section id='trending-section' showaddelement='yes'>
+            <b:widget id='Label1' locked='false' title='Labels' type='Label' version='2'>
+              <b:includable id='main'>
+                <div class='trending-scroll'>
+                  <b:loop values='data:labels' var='label'>
+                    <a class='trending-tag' expr:href='data:label.url'>
+                      <span><data:label.name/></span>
+                    </a>
+                  </b:loop>
+                </div>
+              </b:includable>
+            </b:widget>
+          </b:section>
+        </div>
+      </section>
+
+    </b:if>
+
+    <!-- ============ BLOG POSTS SECTION ============ -->
+    <b:section class='blog-posts-section' id='main-content' name='Main Content' showaddelement='no'>
+      <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2'>
+        <b:includable id='main'>
+
+          <b:if cond='data:blog.pageType == "item"'>
+            <!-- ===== SINGLE POST VIEW ===== -->
+            <div class='blog-page' style='padding-top:8rem;padding-bottom:5rem'>
+              <div class='blog-container'>
+                <header class='article-header'>
+                  <div class='article-meta animate-on-scroll'>
+                    <b:if cond='data:post.labels'>
+                      <b:loop values='data:post.labels' var='label'>
+                        <a class='badge' expr:href='data:label.url'><data:label.name/></a>
+                      </b:loop>
+                    </b:if>
+                    <span class='read-time'/>
+                    <span class='date'><data:post.date/></span>
+                  </div>
+                  <h1 class='article-title animate-on-scroll'><data:post.title/></h1>
+                  <div class='author-meta animate-on-scroll'>
+                    <div class='author-info'>
+                      <img alt='Author' class='author-img' expr:src='data:post.author.authorPhoto.image ? data:post.author.authorPhoto.image : "https://ui-avatars.com/api/?name=" + data:post.author.name'/>
+                      <div>
+                        <h3><data:post.author.name/></h3>
+                        <p><data:post.date/></p>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+
+                <b:if cond='data:post.featuredImage'>
+                  <div class='featured-image animate-on-scroll'>
+                    <img expr:alt='data:post.title' expr:src='data:post.featuredImage' loading='lazy'/>
+                  </div>
+                </b:if>
+
+                <article class='article-body'>
+                  <data:post.body/>
+                </article>
+
+                <!-- Tags -->
+                <b:if cond='data:post.labels'>
+                  <div class='article-tags animate-on-scroll'>
+                    <b:loop values='data:post.labels' var='label'>
+                      <a class='tag' expr:href='data:label.url'>#<data:label.name/></a>
+                    </b:loop>
+                  </div>
+                </b:if>
+
+                <!-- Author Card -->
+                <div class='author-card animate-on-scroll'>
+                  <div class='author-avatar-large'>
+                    <img alt='Author' expr:src='data:post.author.authorPhoto.image ? data:post.author.authorPhoto.image : "https://ui-avatars.com/api/?name=" + data:post.author.name + "&amp;size=200"'/>
+                  </div>
+                  <div class='author-details'>
+                    <h3><data:post.author.name/></h3>
+                    <p><data:post.author.aboutMe/></p>
+                  </div>
+                </div>
+
+                <!-- Comments -->
+                <div class='comments-section animate-on-scroll'>
+                  <h3 class='section-title'>Discussion</h3>
+                  <b:include name='comments' data='post'/>
+                </div>
+              </div>
+            </div>
+
+          <b:else/>
+            <!-- ===== INDEX / ARCHIVE VIEW (Post List) ===== -->
+            <section class='latest-articles' style='padding-top:2rem'>
+              <div class='latest-container'>
+                <div class='latest-header'>
+                  <h2 class='section-title'><span class='title-bar bg-accent-secondary'/> Latest Posts</h2>
+                </div>
+                <div class='article-list'>
+                  <b:loop values='data:posts' var='post'>
+                    <a class='article-item animate-on-scroll' expr:href='data:post.url'>
+                      <b:if cond='data:post.featuredImage'>
+                        <div class='article-image'>
+                          <img expr:alt='data:post.title' expr:src='data:post.featuredImage' loading='lazy'/>
+                          <div class='article-progress'/>
+                        </div>
+                      </b:if>
+                      <div class='article-info'>
+                        <div class='article-meta'>
+                          <b:if cond='data:post.labels'>
+                            <span class='cat text-accent-secondary'><data:post.labels.first.name/></span>
+                            <span class='meta-dot'/>
+                          </b:if>
+                          <span class='time'><data:post.date/></span>
+                        </div>
+                        <h3 class='article-title'><data:post.title/></h3>
+                        <div class='article-footer'>
+                          <div class='read-duration'>
+                            <svg class='text-accent-warning' height='14' viewBox='0 0 24 24' width='14' fill='none' stroke='currentColor' stroke-width='2'><circle cx='12' cy='12' r='10'/><polyline points='12 6 12 12 16 14'/></svg>
+                            <span class='read-time'/>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </b:loop>
+                </div>
+
+                <!-- Pagination -->
+                <div style='display:flex;justify-content:center;gap:1rem;padding:3rem 0'>
+                  <b:if cond='data:newerPageUrl'>
+                    <a class='btn-secondary' expr:href='data:newerPageUrl' style='padding:0.75rem 1.5rem;border-radius:0.75rem'>← Newer Posts</a>
+                  </b:if>
+                  <b:if cond='data:olderPageUrl'>
+                    <a class='btn-primary' expr:href='data:olderPageUrl' style='padding:0.75rem 1.5rem;border-radius:0.75rem;width:auto'>Older Posts →</a>
+                  </b:if>
+                </div>
+              </div>
+            </section>
+          </b:if>
+
+        </b:includable>
+
+        <!-- Comments includable -->
+        <b:includable id='comments' var='post'>
+          <div class='comment-box'>
+            <b:if cond='data:post.allowComments'>
+              <a expr:href='data:post.commentsUrl' style='display:block;text-align:center;padding:1rem;color:var(--color-accent-primary);font-weight:600'>
+                <data:post.numberOfComments/> Comments — Join the Discussion
+              </a>
+            </b:if>
+          </div>
+        </b:includable>
+
+      </b:widget>
+    </b:section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class='footer'>
+    <div class='footer-container'>
+      <div class='footer-grid'>
+        <div class='footer-brand'>
+          <a class='footer-logo' expr:href='data:blog.homepageUrl'>
+            <span class='logo-text'><data:blog.title/></span>
+          </a>
+          <p class='footer-desc'>Building the future, one line of code at a time.</p>
+        </div>
+        <b:section id='footer-links' showaddelement='yes'>
+          <b:widget id='LinkList1' locked='false' title='Links' type='LinkList' version='2'>
+            <b:includable id='main'>
+              <div class='footer-links'>
+                <b:loop values='data:links' var='link'>
+                  <a expr:href='data:link.target'><data:link.name/></a>
+                </b:loop>
+              </div>
+            </b:includable>
+          </b:widget>
+        </b:section>
+        <div class='footer-social'>
+          <b:section id='footer-social-section' showaddelement='yes'/>
+        </div>
+      </div>
+      <div class='footer-copy'>© <script>document.write(new Date().getFullYear())</script> <data:blog.title/>. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Nav -->
+  <div class='mobile-bottom-nav'>
+    <a class='mbn-btn active' expr:href='data:blog.homepageUrl'><svg height='20' viewBox='0 0 24 24' width='20' fill='none' stroke='currentColor' stroke-width='2'><path d='m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/><polyline points='9 22 9 12 15 12 15 22'/></svg><span>Home</span></a>
+    <a class='mbn-btn' href='/search/label/AI'><svg height='20' viewBox='0 0 24 24' width='20' fill='none' stroke='currentColor' stroke-width='2'><circle cx='12' cy='12' r='10'/><polygon points='16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76'/></svg><span>Explore</span></a>
+    <a class='mbn-center-btn' href='/search'><svg height='24' viewBox='0 0 24 24' width='24' fill='none' stroke='currentColor' stroke-width='2'><circle cx='11' cy='11' r='8'/><path d='m21 21-4.3-4.3'/></svg></a>
+    <a class='mbn-btn' href='#'><svg height='20' viewBox='0 0 24 24' width='20' fill='none' stroke='currentColor' stroke-width='2'><path d='m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z'/></svg><span>Saved</span></a>
+    <a class='mbn-btn' href='#'><svg height='20' viewBox='0 0 24 24' width='20' fill='none' stroke='currentColor' stroke-width='2'><path d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/></svg><span>Profile</span></a>
+  </div>
+
+  <!-- Back to Top -->
+  <button class='back-to-top' id='back-to-top'><svg height='20' viewBox='0 0 24 24' width='20' fill='none' stroke='currentColor' stroke-width='2.5'><path d='m18 15-6-6-6 6'/></svg></button>
+
+  <!--
+    =====================================================================
+    IMPORTANT: Upload script.js to a CDN and replace the URL below.
+    =====================================================================
+  -->
+  <script src='YOUR_CDN_URL_HERE/script.js'/>
+
+</body>
+</html>
